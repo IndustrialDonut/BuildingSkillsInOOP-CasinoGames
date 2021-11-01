@@ -2,9 +2,9 @@ package main;
 
 public class Martingale extends Player{
 	
-	public Martingale(int rounds) {
-		super(rounds);
-	}
+	//public Martingale(int rounds) {
+	//	super(rounds);
+	//}
 
 	private int betMultiple = 1;
 	

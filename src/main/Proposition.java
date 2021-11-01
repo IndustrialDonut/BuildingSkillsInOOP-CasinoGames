@@ -1,6 +1,7 @@
 package main;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * Proposition is the "what" part of a Bet, not the "amount" part. A Bet is an amount bet on something, and
@@ -26,15 +27,7 @@ public class Proposition {
 	private static HashMap<String, Proposition> map_of_props = new HashMap<String, Proposition>();
 	
 	public static Proposition getProposition(String name) {
-		Proposition toReturn = map_of_props.get(name);
-		if(toReturn == null) {
-			System.out.println("Could not retrieve an instance of " + name);
-			for(String key : map_of_props.keySet()) {
-				System.out.println(key);
-			}
-			System.out.println("Proposition has " + map_of_props.size() + " props stored total");
-		};
-		return toReturn;
+		return Objects.requireNonNull(map_of_props.get(name));
 	}
 	
 	public Proposition(String name, int odds) {
@@ -50,17 +43,13 @@ public class Proposition {
 	
 	@Override
 	public boolean equals(Object o) {
-		if (o instanceof Proposition) {
-			if (o.toString() == this.toString()) {
-				return true;
-			}
-		}
-		return false;
+		//if (o instanceof Proposition) {
+		return o.toString().equals(this.toString());
 	}
 	
 	@Override
 	public int hashCode() {
-		return name.hashCode();
+		return name.hashCode(); // maybe use toString.hashCode() ?
 	}
 	
 	@Override

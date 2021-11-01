@@ -3,14 +3,14 @@ package main;
 import exceptions.InvalidBet;
 
 public abstract class Player {
-	private int roundsToGo;
+	//private int roundsToGo;
 	
 	protected Table table;
 	protected int money = 2000;
 	
-	public Player(int rounds) {
-		this.roundsToGo = rounds;
-	}
+	//public Player(int rounds) {
+	//	this.roundsToGo = rounds;
+	//}
 	
 	public abstract Bet makeBet();
 	
@@ -32,7 +32,8 @@ public abstract class Player {
 	}
 	
 	public boolean isPlaying() {
-		if(roundsToGo > 0 && money > 0)
+		//if(roundsToGo > 0 && money > 0)
+		if(money > 0)
 			return true;
 		else
 			return false;

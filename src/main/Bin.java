@@ -21,7 +21,7 @@ public class Bin extends HashSet<Proposition>{ // perhaps could be inner class o
 	
 	public boolean contains(Proposition prop) {
 		for(Proposition el : this) {
-			if(el.toString() == prop.toString()) {
+			if(el.toString().equals( prop.toString()) ){
 				return true;
 			}
 		}

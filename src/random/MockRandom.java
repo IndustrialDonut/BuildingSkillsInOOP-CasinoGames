@@ -7,7 +7,7 @@ public class MockRandom implements Randomlike{
 	@Override
 	public int nextInt(int exclusiveTopBound) {
 		
-		if(count > 38)
+		if(count > 37)
 			count = 0;
 		
 		return count++;
