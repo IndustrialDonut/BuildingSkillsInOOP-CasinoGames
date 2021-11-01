@@ -23,7 +23,6 @@ public class RouletteGame {
 		this.table = table;
 	}
 	
-
 	public static void main(String[] args) throws InvalidBet {
 		//PropositionTest.test();
 		//BinTest.test();
@@ -36,23 +35,26 @@ public class RouletteGame {
 	}
 	
 	public void cycle(Player player) {
-		if(player.playing()) {
+		if(player.isPlaying()) {
 			table.clearTableBets();
 			
-			Bet bet = player.makeBet();
-			
-			try {
-				table.placeBet(bet);
-			} catch (InvalidBet e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			playerPlaceBet(player);
 			
 			matchBets(wheel.spin(), player);
 		}
 		else
 			System.out.println("Player is not playing anymore.");
+	}
+	
+	private void playerPlaceBet(Player player) {
+		Bet bet = player.makeBet();
 		
+		try {
+			table.placeBet(bet);
+		} catch (InvalidBet e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	private void matchBets(Bin winning_bin, Player player) {

@@ -1,12 +1,11 @@
 package main;
 
-import exceptions.InvalidBet;
-
 public class Passenger57 extends Player {
 	
 	private Proposition black;
 
-	public Passenger57() {
+	public Passenger57(int rounds) {
+		super(rounds);
 		black = Proposition.getProposition("Black");
 	}
 
@@ -18,5 +17,4 @@ public class Passenger57 extends Player {
 		return black_bet;
 		
 	}
-
 }

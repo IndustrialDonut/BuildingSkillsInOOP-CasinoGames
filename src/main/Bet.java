@@ -37,12 +37,8 @@ public class Bet {
 		return wager;
 	}
 	
-	public int winAmount() {
-		return prop.winnings_from_bet(wager);
-	}
-	
-	public int loseAmount() {
-		return -wager;
+	public int getWinReturn() {
+		return prop.winnings_from_bet(wager) + wager;
 	}
 	
 	@Override

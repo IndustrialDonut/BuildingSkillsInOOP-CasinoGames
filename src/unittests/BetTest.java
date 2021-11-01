@@ -17,11 +17,6 @@ public class BetTest {
 		Bet bet2 = new Bet(33, Proposition.getProposition("Top 5"));
 		Bet bet3 = new Bet(900, Proposition.getProposition("Street 1 2 3"));
 		
-		System.out.println(bet.winAmount() + " "
-				+ bet.loseAmount() + " "
-				+ bet2.winAmount() + " "
-				+ bet2.loseAmount() + " "
-				+ bet3.winAmount() + " " 
-				+ bet3.loseAmount());
 	}
+	
 }

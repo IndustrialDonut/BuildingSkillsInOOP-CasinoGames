@@ -1,12 +1,14 @@
 package main;
 
-import exceptions.InvalidBet;
-
 public abstract class Player {
 	private int roundsToGo;
 	
 	protected Table table;
 	protected int money = 2000;
+	
+	public Player(int rounds) {
+		this.roundsToGo = rounds;
+	}
 	
 	public abstract Bet makeBet();
 	
@@ -21,7 +23,7 @@ public abstract class Player {
 		return money;
 	}
 	
-	public boolean playing() {
+	public boolean isPlaying() {
 		if(roundsToGo > 0 && money > 0)
 			return true;
 		else
@@ -30,8 +32,9 @@ public abstract class Player {
 	
 	public void win(Bet bet) {
 		// this bet by this player won, do logic to add money
-		money += bet.winAmount();
-		money += bet.getWager(); // if you lose, you simply don't get the wager back, which you invested in makeBets()
+		// WinReturn is inclusive of your bet + the profit on the bet
+		money += bet.getWinReturn();// if you lose, you simply don't get the wager back
+		//money += bet.getWager();
 	}
 	
 	public void lose(Bet bet) {
