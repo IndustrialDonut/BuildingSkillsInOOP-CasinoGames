@@ -26,13 +26,22 @@ public class Proposition {
 	private static HashMap<String, Proposition> map_of_props = new HashMap<String, Proposition>();
 	
 	public static Proposition getProposition(String name) {
-		return map_of_props.get(name);
+		Proposition toReturn = map_of_props.get(name);
+		if(toReturn == null) {
+			System.out.println("Could not retrieve an instance of " + name);
+			for(String key : map_of_props.keySet()) {
+				System.out.println(key);
+			}
+			System.out.println("Proposition has " + map_of_props.size() + " props stored total");
+		};
+		return toReturn;
 	}
 	
 	public Proposition(String name, int odds) {
 		this.name = name;
 		this.odds = odds;
 		map_of_props.put(name, this);
+		//System.out.println("Prop constructed, map size is " + map_of_props.size());
 	}
 	
 	public int winnings_from_bet(int amount) {
@@ -42,7 +51,7 @@ public class Proposition {
 	@Override
 	public boolean equals(Object o) {
 		if (o instanceof Proposition) {
-			if (((Proposition)o).name == this.name) {
+			if (o.toString() == this.toString()) {
 				return true;
 			}
 		}
@@ -56,7 +65,6 @@ public class Proposition {
 	
 	@Override
 	public String toString() {
-		
 		return name + ' ' + '(' + odds + ":1)";
 	}
 

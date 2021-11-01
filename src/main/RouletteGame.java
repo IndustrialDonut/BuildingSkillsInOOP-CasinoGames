@@ -60,14 +60,18 @@ public class RouletteGame {
 	private void matchBets(Bin winning_bin, Player player) {
 		Iterator<Bet> iter = table.getIterator();
 		
+		System.out.println(winning_bin.toString());
+		
 		while(iter.hasNext()) {
 			
 			Bet player_bet = iter.next();
 			
 			if(winning_bin.contains(player_bet.getProposition())) {
 				player.win(player_bet);
+				System.out.println(player.toString() + " won");
 			}
 			else {
+				System.out.println(player.toString() + " lost");
 				player.lose(player_bet);
 			}
 		}

@@ -11,12 +11,20 @@ import java.util.Arrays;
  */
 public class Bin extends HashSet<Proposition>{ // perhaps could be inner class of Wheel
 	
-	
 	public Bin() {
 		super();
 	}
 	
 	public Bin(Proposition ... prop) {
 		super(Arrays.asList(prop));
+	}
+	
+	public boolean contains(Proposition prop) {
+		for(Proposition el : this) {
+			if(el.toString() == prop.toString()) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

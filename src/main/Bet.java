@@ -1,5 +1,6 @@
 package main;
 
+import exceptions.InvalidBet;
 
 /**
  * The combination of an amount/wager and WHAT Proposition it is wagered on winning.
@@ -12,8 +13,10 @@ public class Bet {
 	private Proposition prop;
 	//private Player player;
 	
-	public Bet(int wager, Proposition prop){
-		assert(wager >= 0);
+	public Bet(int wager, Proposition prop) throws InvalidBet{
+		if( wager <= 0 || prop == null) {
+			throw new InvalidBet();
+		}
 		this.wager = wager;
 		this.prop = prop;
 	}

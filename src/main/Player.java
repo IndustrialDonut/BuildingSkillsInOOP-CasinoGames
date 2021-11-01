@@ -1,5 +1,7 @@
 package main;
 
+import exceptions.InvalidBet;
+
 public abstract class Player {
 	private int roundsToGo;
 	
@@ -15,11 +17,17 @@ public abstract class Player {
 	protected Bet prepareBet(int amount, Proposition prop) {
 		assert(money - amount > 0);
 		money -= amount;
-		Bet bet = new Bet(amount, prop);
-		return bet;
+		try {
+			Bet bet = new Bet(amount, prop);
+			return bet;
+		} catch (InvalidBet e) {
+			System.out.println("Bet could not even be CREATED!");
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
-	public int getMoneyLeft() {
+	public int getMoney() {
 		return money;
 	}
 	

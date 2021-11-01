@@ -17,6 +17,7 @@ public class TableTest {
 		Proposition prop2 = Proposition.getProposition("Top 5");
 		Proposition prop3 = Proposition.getProposition("Split 5-8");
 		
+		/*
 		Bet bet1 = new Bet(5000, prop3);
 		Bet bet2= new Bet(111, prop2);
 		Bet bet3 = new Bet(1, prop1);
@@ -42,6 +43,6 @@ public class TableTest {
 		} catch (InvalidBet e) {
 			System.out.println("Bet invalid! Amount outside of regulation on Bet " + bet3.toString());
 			e.printStackTrace();
-		}
+		}*/
 	}
 }

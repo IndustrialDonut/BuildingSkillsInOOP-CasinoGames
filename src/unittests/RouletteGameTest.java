@@ -11,13 +11,17 @@ public class RouletteGameTest {
 	
 	public static void test() {
 		
+		// AS IT IS THIS MUST BE CONSTRUCTED FIRST BEFORE THE PLAYER!
+		// because the bins and props are constructed with the wheel or something
+		// with the binbuilder class.
+		RouletteGame game = new RouletteGame(new Wheel(), new Table());
+		
 		//Player player = new Passenger57();
 		Player player = new Passenger57(10);
-		RouletteGame game = new RouletteGame(new Wheel(), new Table());
 		
 		while(player.isPlaying()) {
 			game.cycle(player);
-			System.out.println(player.getMoneyLeft());
+			System.out.println(player.getMoney());
 		}
 	}
 

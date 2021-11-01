@@ -6,15 +6,14 @@ public class Passenger57 extends Player {
 
 	public Passenger57(int rounds) {
 		super(rounds);
-		black = Proposition.getProposition("Black");
+		black = Proposition.getProposition("Black"); // is this returning null?
+		if (black == null) {
+			System.out.println("Passenger57 cannot get Black prop!!");
+		}
 	}
 
 	@Override
 	public Bet makeBet()  {
-		
-		Bet black_bet = prepareBet(100, black);
-		
-		return black_bet;
-		
+		return prepareBet(100, black);
 	}
 }
