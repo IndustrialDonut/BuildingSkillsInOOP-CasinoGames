@@ -13,6 +13,7 @@ import org.junit.Test;
 import exceptions.InvalidBet;
 import main.Bet;
 import main.WheelBuilder;
+import random.MockRandom;
 import main.Proposition;
 import main.Table;
 import main.Wheel;
@@ -26,7 +27,7 @@ public class TableJTest {
 	Map<String, Bet> bets = new HashMap<String, Bet>();
 	
 	public TableJTest(){
-		wheel = new Wheel(new Random(), new WheelBuilder());
+		wheel = new Wheel(new MockRandom(), new WheelBuilder());
 		
 		table = new Table();
 		

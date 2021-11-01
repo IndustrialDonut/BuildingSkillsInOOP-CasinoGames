@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Objects;
+
 import exceptions.InvalidBet;
 
 /**
@@ -16,11 +18,8 @@ public class Bet {
 		if( wager <= 0) { 
 			throw new InvalidBet();
 		}
-		if(prop == null) {
-			throw new InvalidBet();
-		}
 		this.wager = wager;
-		this.prop = prop;
+		this.prop = Objects.requireNonNull(prop, "Proposition cannot be null in Bet construction!");
 	}
 	
 	public Proposition getProposition() {
