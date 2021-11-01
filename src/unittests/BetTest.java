@@ -1,7 +1,7 @@
 package unittests;
 
 import main.Bet;
-import main.BinBuilder;
+import main.WheelBuilder;
 import main.Proposition;
 import main.Wheel;
 
@@ -9,7 +9,7 @@ public class BetTest {
 	public static void test(){
 		
 		Wheel wheel = new Wheel();
-		BinBuilder builder = new BinBuilder();
+		WheelBuilder builder = new WheelBuilder();
 		builder.buildWheelBins(wheel);
 		
 		/*

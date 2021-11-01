@@ -1,6 +1,6 @@
 package main;
 
-import java.util.Random;
+import random.Randomlike;
 
 
 /**
@@ -11,32 +11,23 @@ import java.util.Random;
  */
 public class Wheel {
 	
-	private Bin[] bins = new Bin[38];
+	private Bin[] bins = new Bin[38]; // 1-36 , 0, and 00, so 38 total
 	
-	private Random rng = new Random(); // default constructor uses time-based seed!
+	private Randomlike rng;
 	
-	public Wheel() {
+	public Wheel(Randomlike rng, WheelBuilder builder) {
+		
+		this.rng = rng;
 		
 		for(int i = 0; i < bins.length; i++) {
 			bins[i] = new Bin();
 		}
 		
-		BinBuilder builder  = new BinBuilder();
 		builder.buildWheelBins(this);
 	}
-	
-	/**
-	 * Sets wheel to reproducible behavior with custom seed.
-	 * @param i rng seed
-	 */
-	public void setControlledRandom(int i) {
-		rng.setSeed(i);
-	}
-	/**
-	 * Makes the rng time based again as default, so it's 'really' random now.
-	 */
-	public void setControlledRandom() {
-		rng = new Random();
+
+	public void setNewRandom(Randomlike rng) {
+		this.rng = rng;
 	}
 	
 	/**

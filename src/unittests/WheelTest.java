@@ -2,7 +2,7 @@ package unittests;
 
 import java.util.Random;
 
-import main.BinBuilder;
+import main.WheelBuilder;
 import main.Proposition;
 import main.Wheel;
 
@@ -44,7 +44,7 @@ public class WheelTest {
 		}
 		System.out.println();
 		
-		BinBuilder builder = new BinBuilder();
+		WheelBuilder builder = new WheelBuilder();
 		builder.buildWheelBins(wheel);
 		
 		System.out.println(wheel.getBin(0));

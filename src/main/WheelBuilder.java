@@ -10,12 +10,12 @@ import java.util.Arrays;
  * @author DONUT
  *
  */
-public class BinBuilder {
+public class WheelBuilder {
 
 	//this array not used, it was just an idea
 	//int[][] table1_36 = new int[12][3];
 	
-	public BinBuilder() {
+	public WheelBuilder() {
 		//for(int i = 0; i < table1_36.length; i++) {
 			//for(int j = 0; j < table1_36[0].length; j++) {
 			//	table1_36[i][j] = i * table1_36[0].length + j + 1;

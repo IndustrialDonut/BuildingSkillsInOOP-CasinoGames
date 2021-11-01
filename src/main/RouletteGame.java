@@ -4,12 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import exceptions.InvalidBet;
-import unittests.BetTest;
-import unittests.BinTest;
-import unittests.PropositionTest;
-import unittests.RouletteGameTest;
-import unittests.TableTest;
-import unittests.WheelTest;
 
 // page 79/83 now PLAYER CLASS
 
@@ -21,17 +15,6 @@ public class RouletteGame {
 	public RouletteGame(Wheel wheel, Table table) {
 		this.wheel = wheel;
 		this.table = table;
-	}
-	
-	public static void main(String[] args) throws InvalidBet {
-		//PropositionTest.test();
-		//BinTest.test();
-		//WheelTest.test();
-		//WheelTest.test_with_BinBuilder();
-		//System.out.println(Proposition.getProposition("Straight 00"));
-		//BetTest.test();
-		//TableTest.test();
-		RouletteGameTest.test();
 	}
 	
 	public void cycle(Player player) {
@@ -58,13 +41,10 @@ public class RouletteGame {
 	}
 	
 	private void matchBets(Bin winning_bin, Player player) {
-		Iterator<Bet> iter = table.getIterator();
 		
 		System.out.println(winning_bin.toString());
 		
-		while(iter.hasNext()) {
-			
-			Bet player_bet = iter.next();
+		for(Bet player_bet : table) {
 			
 			if(winning_bin.contains(player_bet.getProposition())) {
 				player.win(player_bet);

@@ -2,30 +2,31 @@ package unittests;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+
 import org.junit.Test;
 
 import exceptions.InvalidBet;
 import main.Bet;
-import main.BinBuilder;
+import main.WheelBuilder;
 import main.Proposition;
 import main.Table;
 import main.Wheel;
 
 public class TableJTest {
 	private Wheel wheel;
-	private BinBuilder builder;
+	private WheelBuilder builder;
 	private Table table;
 	
 	Proposition[] array = new Proposition[3];
-	Bet invalidBet;
-	Bet validBet;
-	Bet validBet2;
-	//Bet invalidBet2;
+	Map<String, Bet> bets = new HashMap<String, Bet>();
 	
-	public TableJTest() throws InvalidBet {
-		wheel = new Wheel();
-		builder = new BinBuilder();
-		builder.buildWheelBins(wheel);
+	public TableJTest(){
+		wheel = new Wheel(new Random(), new WheelBuilder());
 		
 		table = new Table();
 		
@@ -33,14 +34,19 @@ public class TableJTest {
 		array[1] = Proposition.getProposition("Top 5");
 		array[2] = Proposition.getProposition("Split 5-8");
 		
-		invalidBet = new Bet(table.getTableLimit() + 1, array[0]);
-		validBet = new Bet(table.getTableLimit(), array[0]);
-		validBet2 = new Bet(table.getTableMinimum(), array[0]);
-		//invalidBet2 = new Bet(table.getTableMinimum() - 1, array[0]);
+		try {
+			bets.put("invalid", new Bet(table.getTableLimit() + 1, array[0]));
+			bets.put("valid", new Bet(table.getTableLimit(), array[0]));
+			bets.put("valid2", new Bet(table.getTableMinimum(), array[0]));
+		} catch (InvalidBet e) {
+			System.out.println("Cannot construct bets to test with");
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	public void testClearTableBets() {
+		testPlaceBet();
 		table.clearTableBets();
 		assertEquals(0, table.getBetsCount());
 	}
@@ -49,26 +55,26 @@ public class TableJTest {
 	public void testIterator() {
 		testPlaceBet();
 		assertEquals(2, table.getBetsCount());
+		for(Bet bet : table) {
+			assertTrue(bets.values().contains(bet));
+		}
 	}
 
 	@Test
 	public void testPlaceBet() {
 		try {
-			table.placeBet(validBet);
-			table.placeBet(validBet2);
+			table.placeBet(bets.get("valid"));
+			table.placeBet(bets.get("valid2"));
 		} catch (InvalidBet e) {
 			e.printStackTrace();
 			fail("Invalid bet exception");
 		}
 		
 		try {
-			table.placeBet(invalidBet);
-			//table.placeBet(invalidBet2);
+			table.placeBet(bets.get("invalid"));
 			fail("SHOULD HAVE thrown InvalidBet exception");
 		}catch(InvalidBet e) {
 			e.printStackTrace();
 		}
-		
 	}
-
 }

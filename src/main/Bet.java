@@ -11,7 +11,6 @@ public class Bet {
 	
 	private int wager;
 	private Proposition prop;
-	//private Player player;
 	
 	public Bet(int wager, Proposition prop) throws InvalidBet{
 		if( wager <= 0) { 
@@ -23,17 +22,6 @@ public class Bet {
 		this.wager = wager;
 		this.prop = prop;
 	}
-	
-	// this was my idea of how to handle wins/losses, but I will follow book for now.
-	
-	//public int wagerReturn(Bin winning_bin) {
-	//	if(winning_bin.contains(prop)) {
-	//		return prop.winnings_from_bet(wager);
-	//	}
-	//	else {
-	//		return -wager;
-	//	}
-	//}
 	
 	public Proposition getProposition() {
 		return prop;
@@ -51,5 +39,4 @@ public class Bet {
 	public String toString() {
 		return wager + " " + prop.toString();
 	}
-
 }
