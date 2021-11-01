@@ -12,7 +12,7 @@ import exceptions.InvalidBet;
  * @author DONUT
  *
  */
-public class Table {
+public class Table implements Iterable<Bet>{
 	
 	private int limit = 1200;
 	private int minimum = 1;
@@ -21,18 +21,6 @@ public class Table {
 	
 	public void clearTableBets() {
 		bets.clear();
-	}
-	
-	public Iterator<Bet> getIterator(){
-		return bets.iterator();
-	}
-	
-	/**
-	 * @deprecated
-	 * @return
-	 */
-	public ArrayList<Bet> getBets(){
-		return bets;
 	}
 	
 	public void placeBet(Bet bet)  throws InvalidBet{
@@ -44,14 +32,21 @@ public class Table {
 		}
 	}
 	
-	// this method is useless if an exception is just thrown upon an 
-	// invalid bet being placed anyway.
-	public boolean isValid() {
-		for(Bet bet : bets) {
-			if(bet.getWager() > limit || bet.getWager() < minimum)
-				return false;
-		}
-		return true; 
+	public int getTableLimit() {
+		return limit;
+	}
+	
+	public int getTableMinimum() {
+		return minimum;
+	}
+
+	@Override
+	public Iterator<Bet> iterator() {
+		return bets.iterator();
+	}
+	
+	public int getBetsCount() {
+		return bets.size();
 	}
 
 }

@@ -14,7 +14,10 @@ public class Bet {
 	//private Player player;
 	
 	public Bet(int wager, Proposition prop) throws InvalidBet{
-		if( wager <= 0 || prop == null) {
+		if( wager <= 0) { 
+			throw new InvalidBet();
+		}
+		if(prop == null) {
 			throw new InvalidBet();
 		}
 		this.wager = wager;
