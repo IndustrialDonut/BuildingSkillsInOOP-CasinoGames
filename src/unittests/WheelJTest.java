@@ -4,10 +4,10 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import main.WheelBuilder;
 import random.MockRandom;
+import wheel.Wheel;
+import wheel.WheelBuilder;
 import main.Bin;
-import main.Wheel;
 
 public class WheelJTest {
 	

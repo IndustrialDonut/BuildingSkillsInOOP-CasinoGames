@@ -1,7 +1,7 @@
-package main;
+package wheel;
 
-import random.Randomlike;
-
+import main.Bin;
+import main.Proposition;
 
 /**
  * Wheel has a collection of Bins, of which one will be randomly selected and returned with spin().

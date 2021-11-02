@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import main.Proposition;
-import main.Wheel;
-import main.WheelBuilder;
 import random.MockRandom;
+import wheel.Wheel;
+import wheel.WheelBuilder;
 
 public class PropositionJTest {
 	

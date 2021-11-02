@@ -1,6 +1,9 @@
-package main;
+package player;
 
 import java.util.Objects;
+
+import main.Bet;
+import main.Proposition;
 
 public class Passenger57 extends Player {
 

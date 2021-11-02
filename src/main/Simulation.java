@@ -1,6 +1,10 @@
 package main;
 
+import player.Passenger57;
+import player.Player;
 import random.PseudoRandom;
+import wheel.Wheel;
+import wheel.WheelBuilder;
 
 public class Simulation {
 	

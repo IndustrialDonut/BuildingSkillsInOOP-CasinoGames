@@ -1,5 +1,7 @@
 package random;
 
+import wheel.Randomlike;
+
 public class ConstRandom implements Randomlike {
 	
 	int val = 0;

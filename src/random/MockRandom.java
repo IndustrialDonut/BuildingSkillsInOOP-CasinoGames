@@ -1,5 +1,7 @@
 package random;
 
+import wheel.Randomlike;
+
 public class MockRandom implements Randomlike{
 	
 	private int count = 0;

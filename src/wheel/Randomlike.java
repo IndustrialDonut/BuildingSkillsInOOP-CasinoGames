@@ -1,4 +1,4 @@
-package random;
+package wheel;
 
 public interface Randomlike {
 

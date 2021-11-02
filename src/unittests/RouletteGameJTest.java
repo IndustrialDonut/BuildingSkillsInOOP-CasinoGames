@@ -4,15 +4,15 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import main.Passenger57;
-import main.Player;
 import main.RouletteGame;
 import main.Table;
-import main.Wheel;
-import main.WheelBuilder;
+import player.Passenger57;
+import player.Player;
 import random.ConstRandom;
 import random.MockRandom;
 import random.PseudoRandom;
+import wheel.Wheel;
+import wheel.WheelBuilder;
 
 public class RouletteGameJTest {
 
@@ -34,6 +34,8 @@ public class RouletteGameJTest {
 			if(player.getMoney() > start) {
 				winsCount++;
 			}
+			
+			System.out.println(start + " -> " + player.getMoney());
 		}
 		assertEquals(18, winsCount);
 	}

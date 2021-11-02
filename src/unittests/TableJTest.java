@@ -12,11 +12,11 @@ import org.junit.Test;
 
 import exceptions.InvalidBet;
 import main.Bet;
-import main.WheelBuilder;
 import random.MockRandom;
+import wheel.Wheel;
+import wheel.WheelBuilder;
 import main.Proposition;
 import main.Table;
-import main.Wheel;
 
 public class TableJTest {
 	private Wheel wheel;
@@ -75,7 +75,7 @@ public class TableJTest {
 			table.placeBet(bets.get("invalid"));
 			fail("SHOULD HAVE thrown InvalidBet exception");
 		}catch(InvalidBet e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 	}
 }

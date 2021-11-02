@@ -1,6 +1,9 @@
-package main;
+package player;
 
 import exceptions.InvalidBet;
+import main.Bet;
+import main.Proposition;
+import main.Table;
 
 public abstract class Player {
 	//private int roundsToGo;

@@ -1,6 +1,8 @@
-package main;
+package wheel;
 
 import java.util.Arrays;
+
+import main.Proposition;
 
 /**
  * Helper class to build the Wheel properly, filling in all 38 bins with the proper selection of Propositions

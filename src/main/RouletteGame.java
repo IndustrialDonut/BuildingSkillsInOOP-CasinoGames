@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import exceptions.InvalidBet;
+import player.Player;
+import wheel.Wheel;
 
 // page 79/83 now PLAYER CLASS
 
@@ -42,16 +44,16 @@ public class RouletteGame {
 	
 	private void matchBets(Bin winning_bin, Player player) {
 		
-		System.out.println(winning_bin.toString());
+		//System.out.println(winning_bin.toString());
 		
 		for(Bet player_bet : table) {
 			
 			if(winning_bin.contains(player_bet.getProposition())) {
 				player.win(player_bet);
-				System.out.println(player.toString() + " won");
+				//System.out.println(player.toString() + " won");
 			}
 			else {
-				System.out.println(player.toString() + " lost");
+				//System.out.println(player.toString() + " lost");
 				player.lose(player_bet);
 			}
 		}

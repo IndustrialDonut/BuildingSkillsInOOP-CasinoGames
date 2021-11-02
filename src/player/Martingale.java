@@ -1,4 +1,7 @@
-package main;
+package player;
+
+import main.Bet;
+import main.Proposition;
 
 public class Martingale extends Player{
 	
